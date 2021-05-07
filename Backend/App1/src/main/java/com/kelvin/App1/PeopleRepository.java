@@ -1,7 +1,6 @@
-package com.example.profile;
+package com.kelvin.App1;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 
 public interface PeopleRepository extends JpaRepository<People, Integer> {
 }
