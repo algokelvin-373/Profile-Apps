@@ -1,5 +1,7 @@
 package com.example.profile;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

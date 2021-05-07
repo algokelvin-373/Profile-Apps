@@ -1,10 +1,9 @@
-package com.example.profile;
+package com.kelvin.App1;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping(path="/demo")
 public class MainController {
     @Autowired
