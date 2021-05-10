@@ -9,12 +9,11 @@ public class MainController {
     @Autowired
     private PeopleRepository peopleRepository;
 
-    @PostMapping(path="/add") // Map ONLY POST Requests
+    @PostMapping(path="/add") // Map ONLY POST Requests - Using Params
     public @ResponseBody String addNewUser(@RequestParam String name, @RequestParam String address, @RequestParam String description) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
         People people = new People();
-//        people.setId(id);
         people.setName(name);
         people.setAddress(address);
         people.setDescription(description);
