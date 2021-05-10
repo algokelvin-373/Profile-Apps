@@ -1,5 +1,6 @@
 package algokelvin.apps.profileapps
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +19,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         appApiInstance = AppApiInstance.create(BuildConfig.BASE_URL)
+        getDataPeople()
 
+        btn_add_1.setOnClickListener {
+        }
+    }
+
+    private fun getDataPeople() {
         val getPeople = appApiInstance.getPeople()
         getPeople.enqueue(object : Callback<ArrayList<People>> {
             override fun onResponse(call: Call<ArrayList<People>>, response: Response<ArrayList<People>>) {
