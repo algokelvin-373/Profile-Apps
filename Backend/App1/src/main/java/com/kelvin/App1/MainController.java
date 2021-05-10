@@ -14,11 +14,7 @@ public class MainController {
     public @ResponseBody String addNewUser(@RequestParam String name, @RequestParam String address, @RequestParam String description) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
-        People people = new People();
-        people.setName(name);
-        people.setAddress(address);
-        people.setDescription(description);
-        peopleRepository.save(people);
+        setDataPeople(name, address, description);
         return "Saved";
     }
 
@@ -29,12 +25,8 @@ public class MainController {
         String address = jsonReq.getString("address");
         String description = jsonReq.getString("description");
         System.out.println("Data People: " + jsonReq.toString());
-Ø
-        People people = new People();
-        people.setName(name);
-        people.setAddress(address);
-        people.setDescription(description);
-        peopleRepository.save(people);
+
+        setDataPeople(name, address, description);
 
         return "Saved";
     }
@@ -44,5 +36,13 @@ public class MainController {
     Iterable<People> getAllUsers() {
         // This returns a JSON or XML with the users
         return peopleRepository.findAll();
+    }
+
+    private void setDataPeople(String name, String address, String description) {
+        People people = new People();
+        people.setName(name);
+        people.setAddress(address);
+        people.setDescription(description);
+        peopleRepository.save(people);
     }
 }
