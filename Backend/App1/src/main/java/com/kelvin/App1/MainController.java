@@ -1,5 +1,6 @@
 package com.kelvin.App1;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,23 @@ public class MainController {
         people.setAddress(address);
         people.setDescription(description);
         peopleRepository.save(people);
+        return "Saved";
+    }
+
+    @PostMapping(path="/v2/add") // Map ONLY POST Requests - Using Params
+    public @ResponseBody String addUser(@RequestBody String reqPeople) {
+        JSONObject jsonReq = new JSONObject(reqPeople);
+        String name = jsonReq.getString("name");
+        String address = jsonReq.getString("address");
+        String description = jsonReq.getString("description");
+        System.out.println("Data People: " + jsonReq.toString());
+Ø
+        People people = new People();
+        people.setName(name);
+        people.setAddress(address);
+        people.setDescription(description);
+        peopleRepository.save(people);
+
         return "Saved";
     }
 
